@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!--单表-->
+    <item tableName="t_gen_test" rows="60" pk="id" type="info"></item>
+    <!--关系表 1对n -->
+    <!--<item tableName="t_gen_test2" rows="10" pk="id" type="relation">-->
+        <!--行数要大于关系表行数-->
+        <!--<dependency  tableName="t_gen_test7" pk="id" fk="auction_id" relationPostion="1" rows="20"></dependency>-->
+        <!--行数要大于对应关系表行数，nvalue 代表n -->
+        <!--<dependency  tableName="t_gen_test3" pk="TENANT_ID" fk="tenant_id" relationPostion="n" nvalue="4" rows="90"></dependency>-->
+    <!--</item>-->
+    <!--信息主表-->
+    <!--<item tableName="t_gen_test4" pk="id" rows="10" type="info">-->
+        <!--<dependency  tableName="t_gen_test5" pk="id" fk="plate_id" rows="20"></dependency>-->
+        <!--<dependency  tableName="t_gen_test6" pk="id" fk="auction_id" rows="20"></dependency>-->
+    <!--</item>-->
+</configuration>
