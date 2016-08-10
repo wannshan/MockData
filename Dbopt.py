@@ -1,9 +1,11 @@
 __author__ = 'wannshan@163.com'
 import sys
 import pymysql
-cur=''
+import Xmlparser
+cur =''
 def connDB(): #连接数据库函数
-    conn = pymysql.connect(host='192.168.64.129', port=3306, user='git', passwd='git', db='test',charset='utf8')
+    conntionInfo=Xmlparser.getConncetionInfo()
+    conn = pymysql.connect(host=conntionInfo['host'], port=int(conntionInfo['port']), user=conntionInfo['userName'], passwd=conntionInfo['password'], db=conntionInfo['db'],charset='utf8')
     conn.autocommit(1)
     global cur
     cur= conn.cursor()
@@ -13,12 +15,6 @@ def exeUpdate(sql):#更新语句，可执行update,insert语句
     global cur
     sta=cur.execute(sql);
     return(sta);
-
-def exeDelete(tableName,IDs): #删除语句，可批量删除
-    global cur
-    for eachID in IDs.split(','):
-        sta=cur.execute('delete from '+tableName+' where id =%d'% int(eachID));
-    return (sta);
 
 def exeQuery(sql):#查询语句
     global cur

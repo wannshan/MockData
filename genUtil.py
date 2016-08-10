@@ -1,8 +1,10 @@
 import Dbopt
 import random
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
+import  Xmlparser
 def getFields(tableName,pkName):#获取表字段信息
-    cur=Dbopt.exeQuery("select column_name,data_type,CHARACTER_MAXIMUM_LENGTH from information_schema.COLUMNS where table_name = '"+tableName+"' and table_schema = 'test' ORDER BY ORDINAL_POSITION  ")
+    connection=Xmlparser.getConncetionInfo()
+    cur=Dbopt.exeQuery("select column_name,data_type,CHARACTER_MAXIMUM_LENGTH from information_schema.COLUMNS where table_name = '"+tableName+"' and table_schema = '"+connection['db']+"' ORDER BY ORDINAL_POSITION  ")
     b=[]
     for row in cur:
         if(row[0].lower()!=''+pkName.lower()+''):

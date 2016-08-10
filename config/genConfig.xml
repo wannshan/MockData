@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <!--数据库连接-->
+    <dbConnection  host="192.168.64.129" port="3306" db="test"
+                    userName="git"
+                    password="git">
+    </dbConnection>
     <!--单表-->
     <item tableName="t_gen_test" rows="60" pk="id" type="info"></item>
     <!--关系表 1对n -->

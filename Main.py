@@ -3,8 +3,6 @@ import Dbopt
 import Service
 import Xmlparser
 import genUtil
-conn,cur=Dbopt.connDB()
-
 def startGen():
     for item in Xmlparser.getItmes():
         if(Xmlparser.getDependencies(item)==[]):
@@ -38,4 +36,6 @@ def startGen():
                 fkValue[fk]=genUtil.arryEnlarge(a,nvalue)#数组放大
                 Service.genSingleTable(item,0,fkValue)
 
+conn,cur=Dbopt.connDB()
 startGen()
+Dbopt.connClose(conn,cur)
