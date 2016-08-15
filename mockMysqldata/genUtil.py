@@ -1,7 +1,7 @@
-import Dbopt
+
+from . import  Dbopt ,Xmlparser
 import random
 from datetime import datetime, timedelta
-import  Xmlparser
 def getFields(tableName,pkName):#获取表字段信息
     connection=Xmlparser.getConncetionInfo()
     cur=Dbopt.exeQuery("select column_name,data_type,CHARACTER_MAXIMUM_LENGTH from information_schema.COLUMNS where table_name = '"+tableName+"' and table_schema = '"+connection['db']+"' ORDER BY ORDINAL_POSITION  ")
@@ -45,7 +45,8 @@ def mockData(flelds,rows,fkValues):#伪造数据更具字段数据类型
                 ret.append(p)
         batch_list.append('(' + ','.join(ret) + ')')
     return (batch_list,fld);
-
+def testf():
+    print('tttt')
 def arryEnlarge(arr,n):#数组放大 n倍
     r=[]
     for i in arr:

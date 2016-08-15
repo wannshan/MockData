@@ -1,8 +1,7 @@
 __author__ = 'wanshan@163.com'
-import Dbopt
-import Service
-import Xmlparser
-import genUtil
+
+from mockMysqldata import *
+
 def startGen():
     for item in Xmlparser.getItmes():
         if(Xmlparser.getDependencies(item)==[]):
@@ -39,3 +38,6 @@ def startGen():
 conn,cur=Dbopt.connDB()
 startGen()
 Dbopt.connClose(conn,cur)
+# mockMysqldata.funcinit()
+# print('223')
+

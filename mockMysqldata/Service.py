@@ -1,6 +1,5 @@
-import Dbopt
-import Xmlparser
-import genUtil
+
+from . import   Dbopt,Xmlparser,genUtil
 from functools import reduce
 
 def getInsertFieldSql(f1,f2):

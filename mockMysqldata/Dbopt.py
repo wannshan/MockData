@@ -1,7 +1,7 @@
 __author__ = 'wannshan@163.com'
 import sys
 import pymysql
-import Xmlparser
+from . import Xmlparser
 cur =''
 def connDB(): #连接数据库函数
     conntionInfo=Xmlparser.getConncetionInfo()
